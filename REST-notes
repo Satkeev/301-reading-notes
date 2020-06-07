@@ -1,0 +1,52 @@
+### REST
+
+The whole world wide web is built on an architectural style called “REST”. 
+REST provides a definition of a “resource”, which is what those things point to.
+A web page is a “representation” of a resource. Resources are just concepts.
+URLs--those things that you type into the browser...
+Those URLs tell the browser that there's a concept somewhere. A browser can then 
+go ask for a specific representation of the concept. Specifically, the browser
+asks for the web page representation of the concept.
+Representations is one of these things that doesn't get used a lot. In most cases, 
+a resource has only a single representation. But we're hoping that representations 
+will be used more in the future because there's a bunch of new formats popping 
+up all over the place.
+When Fielding and his buddies started building the web, being able to talk to any
+machine anywhere in the world was a primary concern. Most of the techniques we use 
+at work to get computers to talk to each other didn't have those requirements. You 
+just needed to talk to a small group of machines
+Our brains are somehow smart enough to know that the same verbs, like GET, can be 
+applied to many different nouns. Some verbs are more specific than others and apply
+only to a small set of nouns. For instance, I can't drive a cup and I can't drink
+a car. But some verbs are almost universal like GET, PUT, and DELETE.
+HTTP—this protocol Fielding and his friends created—is all about applying verbs 
+to nouns. For instance, when you go to a web page, the browser does an HTTP GET 
+on the URL you type in and back comes a web page.
+Web pages usually have images, right? Those are separate resources. The web page just
+specifies the URLs to the images and the browser goes and does more GETs using the HTTP
+protocol on them until all the resources are obtained and the web page is displayed. But 
+the important thing here is that very different kinds of nouns can be treated the same.
+Whether the noun is an image, text, video, an mp3, a slideshow, whatever. I can GET all
+of those things the same way given a URL.
+
+How about we take a real example. Imagine you are a teacher - at school you probably have
+a big computer system, or three or four computer systems more likely, that would let you 
+manage students: what classes they're in, what grades they're getting, emergency contacts,
+information about the books you teach out of, etc. If the systems are web-based, then 
+there's probably a URL for each of the nouns involved here: student, teacher, class, book,
+room, etc. Right now, getting the URL through the browser gives you a web page. If there
+were a machine readable representation for each URL, then it would be trivial to latch
+new tools onto the system because all of that information would be consumable in a 
+standard way. It would also make it quite a bit easier for each of the systems to talk to
+each other. Or, you could build a state or country-wide system that was able to talk to 
+each of the individual school systems to collect testing scores. The possibilities are endless.
+More or less, this is what engineers do in the web development world, thanks almost entirely 
+to the popularity of RESTful web frameworks like Ruby on Rails.
+
+But this is a very recent change! Just a few years ago, the large majority of developers
+were busy writing layers of complex specifications for how to access data in a different 
+way that isn't nearly as useful or eloquent. Nouns weren't universal and verbs weren't
+polymorphic. They basically ignored throwing out decades of real field usage and proven 
+technique and kept starting over with something that looks a lot like other systems that
+have failed in the past. They used HTTP but only because it let them talk to our network
+and security people less. It was like trading simplicity for flashy tools and wizards.
